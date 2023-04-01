@@ -5,8 +5,14 @@ import '@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol';
 
 error CrossChainNFT__CallerIsNotOwner();
 
-contract ERC721Demo is ERC721URIStorage {
+contract CrossChainNFT is ERC721URIStorage {
     address public owner;
+
+    // struct Log {
+    //     address Avalanch;
+    //     address Polygon;
+    //     address Fantom;
+    // }
 
     constructor(string memory name, string memory symbol) ERC721(name, symbol) {
         owner = msg.sender;
@@ -28,4 +34,6 @@ contract ERC721Demo is ERC721URIStorage {
         }
         _setTokenURI(tokenId, tokenURI);
     }
+
+    // function setLog()
 }
