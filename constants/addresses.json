@@ -1,14 +1,14 @@
 {
     "avalanche": {
-        "sendAckSender": "0xF8C7C019DAf4109C6b6802d190fED9ebe0C0f093",
-        "sendAckReceiverImplementation": "0x492C11055C7E9233A2Adc2e82Bf384fD79d2a675"
+        "sendAckSender": "0x1B02b781f4db9487068D11F7f5e0412E0f2f5332",
+        "sendAckReceiverImplementation": "0x302b7f6972fdb20614298773767e48d28EaBE8C1"
     },
     "fantom": {
-        "sendAckSender": "0xF8C7C019DAf4109C6b6802d190fED9ebe0C0f093",
-        "sendAckReceiverImplementation": "0x492C11055C7E9233A2Adc2e82Bf384fD79d2a675"
+        "sendAckSender": "0x1B02b781f4db9487068D11F7f5e0412E0f2f5332",
+        "sendAckReceiverImplementation": "0x302b7f6972fdb20614298773767e48d28EaBE8C1"
     },
     "polygon": {
-        "sendAckSender": "0xF8C7C019DAf4109C6b6802d190fED9ebe0C0f093",
-        "sendAckReceiverImplementation": "0x492C11055C7E9233A2Adc2e82Bf384fD79d2a675"
+        "sendAckSender": "0x1B02b781f4db9487068D11F7f5e0412E0f2f5332",
+        "sendAckReceiverImplementation": "0x302b7f6972fdb20614298773767e48d28EaBE8C1"
     }
 }

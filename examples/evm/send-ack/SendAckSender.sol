@@ -22,11 +22,7 @@ contract SendAckSender is AxelarExecutable {
     IAxelarGasService public immutable gasService;
     string public thisChain;
 
-    constructor(
-        address gateway_,
-        address gasReceiver_,
-        string memory thisChain_
-    ) AxelarExecutable(gateway_) {
+    constructor(address gateway_, address gasReceiver_, string memory thisChain_) AxelarExecutable(gateway_) {
         gasService = IAxelarGasService(gasReceiver_);
         thisChain = thisChain_;
     }
@@ -70,11 +66,7 @@ contract SendAckSender is AxelarExecutable {
         nonce = nonce_ + 1;
     }
 
-    function _execute(
-        string calldata sourceChain,
-        string calldata sourceAddress,
-        bytes calldata payload
-    ) internal override {
+    function _execute(string calldata sourceChain, string calldata sourceAddress, bytes calldata payload) internal override {
         uint256 nonce_ = abi.decode(payload, (uint256));
         if (destination[nonce_] != _getDestinationHash(sourceChain, sourceAddress)) {
             emit FalseAcknowledgment(sourceChain, sourceAddress, nonce_);
