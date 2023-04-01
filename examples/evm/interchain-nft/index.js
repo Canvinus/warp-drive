@@ -8,7 +8,12 @@ const InterchainNFT = rootRequire('./artifacts/examples/evm/interchain-nft/Inter
 
 async function deploy(chain, wallet) {
     console.log(`Deploying InterchainNFT for ${chain.name}.`);
-    chain.contract = await deployContract(wallet, InterchainNFT, [chain.gateway, chain.gasService, chain.name.toString(), 43114]);
+    //return ['Binance', 'Avalanche', 'Ethereum', 'Polygon'];
+    //return ['Binance']; //97
+    //return ['Avalanche']; //43114
+    //return ['Ethereum']; //5
+    //return ['Polygon']; //80001
+    chain.contract = await deployContract(wallet, InterchainNFT, [chain.gateway, chain.gasService, chain.name.toString(), 80001]);
     chain.wallet = wallet;
     console.log(`Deployed InterchainNFT for ${chain.name} at ${chain.contract.address}.`);
 }
@@ -25,6 +30,7 @@ async function execute(chains, wallet, options) {
         console.log('Destination chain:', destination.name);
         console.log(` URL of token 0 is "${await destination.contract.tokenURI(0)}"`);
         console.log(` NFT connection to ${await destination.contract.remoteChain()} ${await destination.contract.remoteAddress()} `);
+        // console.log(` NFT SAFEWARP MINTED ${await source.contract.tokenURI(1)}`);
         console.log('-');
     }
 
@@ -35,6 +41,9 @@ async function execute(chains, wallet, options) {
 
     const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
     const tx = await source.contract.connectNFTs(destination.name, destination.contract.address, { value: fee });
+    await tx.wait();
+    const txMint = await source.contract.safeWarp();
+    console.log(` NFT SAFEWARP MINTED ${await source.contract.tokenURI(1)}`);
     await tx.wait();
 
     console.log('Remote connection created successfully!');
