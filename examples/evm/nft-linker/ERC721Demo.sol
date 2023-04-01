@@ -13,12 +13,6 @@ contract ERC721Demo is ERC721URIStorage {
     }
 
     function mint(address to, uint256 tokenId) public {
-        if (msg.sender != owner) {
-            revert CrossChainNFT__CallerIsNotOwner(); //Only deployer node can sign the transaction
-        }
-        if (_exists(tokenId)) {
-            safeTransferFrom(owner, to, tokenId);
-        }
         _mint(to, tokenId);
     }
 

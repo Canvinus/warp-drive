@@ -33,7 +33,7 @@ async function deploy(chain, wallet) {
     // );
     //console.log(`Deployed NftLinker for ${chain.name} at ${chain.contract.address}.`);
     console.log(`Minting token ${tokenId} for ${chain.name}`);
-    await (await chain.erc721.mint('0xf65829b83188972c7d07db6478903c6e9fe672b4', tokenId)).wait();
+    await (await chain.erc721.mint('0xA640F6f8fb40C5521c2D94C369755E3573F5D4B9', tokenId)).wait();
     await (
         await chain.erc721.setTokenURI(tokenId, 'ipfs://bafyreibc4t2e7wwpn6c63m7ewgruj7tfj7z4rgoclkh3bybj3aehszrkri/metadata.json')
     ).wait();
