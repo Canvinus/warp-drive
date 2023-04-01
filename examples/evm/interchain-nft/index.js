@@ -8,7 +8,7 @@ const InterchainNFT = rootRequire('./artifacts/examples/evm/interchain-nft/Inter
 
 async function deploy(chain, wallet) {
     console.log(`Deploying InterchainNFT for ${chain.name}.`);
-    chain.contract = await deployContract(wallet, InterchainNFT, [chain.gateway, chain.gasService, chain.name.toString()]);
+    chain.contract = await deployContract(wallet, InterchainNFT, [chain.gateway, chain.gasService, chain.name.toString(), 43114]);
     chain.wallet = wallet;
     console.log(`Deployed InterchainNFT for ${chain.name} at ${chain.contract.address}.`);
 }
@@ -39,7 +39,7 @@ async function execute(chains, wallet, options) {
 
     console.log('Remote connection created successfully!');
 
-    const newURI = 'ipfs://bafybeiajmy6rxutjxn5oz3prmfilxtdzsfejdmohql3wx4jspq2nlk3gze/2.png'; //changed
+    const newURI = 'kek'; //changed
     let tx2 = await source.contract.update(newURI, 0, {
         value: fee,
     });
