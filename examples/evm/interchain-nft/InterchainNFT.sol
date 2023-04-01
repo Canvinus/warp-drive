@@ -19,12 +19,14 @@ contract InterchainNFT is AxelarExecutable, ERC721 {
     string public remoteChain;
     string public remoteAddress;
     IAxelarGasService public immutable gasService;
+    string public chainName;
 
     mapping(uint256 => string) private _tokenURIs;
 
-    constructor(address gateway_, address gasReceiver_) AxelarExecutable(gateway_) ERC721('Drive', 'DRV') {
+    constructor(address gateway_, address gasReceiver_, string memory chainName_) AxelarExecutable(gateway_) ERC721('Drive', 'DRV') {
         gasService = IAxelarGasService(gasReceiver_);
         safeMint(0xA640F6f8fb40C5521c2D94C369755E3573F5D4B9);
+        chainName = chainName_;
     }
 
     function safeMint(address to) public {

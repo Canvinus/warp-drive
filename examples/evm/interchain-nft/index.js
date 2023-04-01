@@ -8,7 +8,7 @@ const InterchainNFT = rootRequire('./artifacts/examples/evm/interchain-nft/Inter
 
 async function deploy(chain, wallet) {
     console.log(`Deploying InterchainNFT for ${chain.name}.`);
-    chain.contract = await deployContract(wallet, InterchainNFT, [chain.gateway, chain.gasService]);
+    chain.contract = await deployContract(wallet, InterchainNFT, [chain.gateway, chain.gasService, chain.name.toString()]);
     chain.wallet = wallet;
     console.log(`Deployed InterchainNFT for ${chain.name} at ${chain.contract.address}.`);
 }
