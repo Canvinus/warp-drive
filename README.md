@@ -1,3 +1,7 @@
+# EasyA is the best
+
+We are trying to find time to contribute to the project further to support EasyA initiative in the app!
+
 # EasyA x HBC Hackathon Project
 
 https://wdrive.io/
